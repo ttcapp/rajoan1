@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
+
 void main() {
   runApp(MyApp());
 }
 
+String imgSrc1="https://thumbs.dreamstime.com/b/environment-earth-day-hands-trees-growing-seedlings-bokeh-green-background-female-hand-holding-tree-nature-field-gra-130247647.jpg";
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
@@ -24,10 +26,32 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
+    double height=MediaQuery.of(context).size.height;
+    double width=MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         title: Text("My Basic"),
       ),
+      body: Center(
+        child: Container(
+          height: height,
+          width: width,
+          color: Colors.green,
+          child: Column(
+            children: [
+              Container(
+                height: height/3,
+                  width: width/2,
+                  child: Image.network(imgSrc1)),
+              Text( "this is a image",style: TextStyle(
+                fontSize: 20,fontWeight: FontWeight.bold,
+                color:Colors.green
+              ),),
+            ],
+          ),
+        ),
+      )
     );
   }
 }
