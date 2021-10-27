@@ -37,18 +37,24 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Container(
           height: height,
           width: width,
-          color: Colors.green,
-          child: Column(
-            children: [
-              Container(
-                height: height/3,
-                  width: width/2,
-                  child: Image.network(imgSrc1)),
-              Text( "this is a image",style: TextStyle(
-                fontSize: 20,fontWeight: FontWeight.bold,
-                color:Colors.green
-              ),),
-            ],
+          color: Colors.indigo,
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                Image.asset("assets/image/image1.jpeg"),
+                Image.asset("assets/image/image5.jpg"),
+                Image.asset("assets/image/image7.png"),
+                Image.asset("assets/image/image6.png"),
+                Container(
+                  height: height/3,
+                    width: width/2,
+                    child: Image.network(imgSrc1)),
+                Text( "this is a image",style: TextStyle(
+                  fontSize: 20,fontWeight: FontWeight.bold,
+                  color:Colors.green
+                ),),
+              ],
+            ),
           ),
         ),
       )
