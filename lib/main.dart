@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 void main() {
   runApp(MyApp());
 }
+double conHeight=100;
+double conWidth=100;
 
 String imgSrc1="https://thumbs.dreamstime.com/b/environment-earth-day-hands-trees-growing-seedlings-bokeh-green-background-female-hand-holding-tree-nature-field-gra-130247647.jpg";
 class MyApp extends StatelessWidget {
@@ -42,21 +44,35 @@ class _MyHomePageState extends State<MyHomePage> {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                Container(
-                  height: 99,
-                  width: 99,
-                  decoration: BoxDecoration(
-                    color: Colors.pink,
-                    image: DecorationImage(
-                      image: NetworkImage("https://thumbs.dreamstime.com/b/bali-mynah-birds-19173506.jpg",
-                      ),
-                      fit: BoxFit.cover
+                InkWell(
+                  onTap: (){
+                    setState(() {
+                      conHeight=400;
+                      conWidth=250;
+                    });
+                  },
+                  onDoubleTap:(){
+                    setState(() {
+                      conHeight=100;
+                      conWidth=100;
+                    });
+                  },
+                  child: AnimatedContainer(
+                    height: conHeight,
+                    width: conWidth,
+                    decoration: BoxDecoration(
+                      color: Colors.pink,
+                      image: DecorationImage(
+                        image: NetworkImage("https://thumbs.dreamstime.com/b/bali-mynah-birds-19173506.jpg",
+                        ),
+                        fit: BoxFit.cover
+                    ),
+                        borderRadius: BorderRadius.circular(179),
+                        border: Border.all(color: Colors.lightBlueAccent,width: 9.5)
                   ),
-                      borderRadius: BorderRadius.circular(179),
-                      border: Border.all(color: Colors.lightBlueAccent,width: 9.5)
-                ),),
-                Image.asset("assets/image/image1.jpeg"),
-                Image.asset("assets/image/image5.jpg"),
+                    duration: Duration(milliseconds: 3999),
+                  ),
+                ),
                 Image.asset("assets/image/image7.png"),
                 Image.asset("assets/image/image6.png"),
                 Container(
