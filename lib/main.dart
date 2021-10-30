@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 
@@ -41,12 +42,25 @@ class _MyHomePageState extends State<MyHomePage> {
           child: SingleChildScrollView(
             child: Column(
               children: [
+                Container(
+                  height: 99,
+                  width: 99,
+                  decoration: BoxDecoration(
+                    color: Colors.pink,
+                    image: DecorationImage(
+                      image: NetworkImage("https://thumbs.dreamstime.com/b/bali-mynah-birds-19173506.jpg",
+                      ),
+                      fit: BoxFit.cover
+                  ),
+                      borderRadius: BorderRadius.circular(179),
+                      border: Border.all(color: Colors.lightBlueAccent,width: 9.5)
+                ),),
                 Image.asset("assets/image/image1.jpeg"),
                 Image.asset("assets/image/image5.jpg"),
                 Image.asset("assets/image/image7.png"),
                 Image.asset("assets/image/image6.png"),
                 Container(
-                  height: height/3,
+                  height: height/2,
                     width: width/2,
                     child: Image.network(imgSrc1)),
                 Text( "this is a image",style: TextStyle(
