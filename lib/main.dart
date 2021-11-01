@@ -63,8 +63,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     decoration: BoxDecoration(
                       color: Colors.pink,
                       image: DecorationImage(
-                        image: NetworkImage("https://thumbs.dreamstime.com/b/bali-mynah-birds-19173506.jpg",
-                        ),
+                        image: AssetImage("assets/image/bird.jpg"),
                         fit: BoxFit.cover
                     ),
                         borderRadius: BorderRadius.circular(179),
