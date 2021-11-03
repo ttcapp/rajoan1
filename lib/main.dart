@@ -1,21 +1,44 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'package:rajoan1/profile.dart';
+import 'package:slide_drawer/slide_drawer.dart';
 
 void main() {
   runApp(MyApp());
 }
+
 double conHeight=100;
 double conWidth=100;
 
 String imgSrc1="https://thumbs.dreamstime.com/b/environment-earth-day-hands-trees-growing-seedlings-bokeh-green-background-female-hand-holding-tree-nature-field-gra-130247647.jpg";
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+   MyApp({Key? key}) : super(key: key);
 
+  final navigatorkey=GlobalKey<NavigatorState>();
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-     home: MyHomePage(),
+      navigatorKey: navigatorkey,
+     home: SlideDrawer(
+       backgroundColor: Colors.pink.shade900,
+       items: [
+         MenuItem('Home', icon: Icons.account_balance,
+             onTap: (){}),
+         MenuItem('Project',icon: Icons.ac_unit,
+             onTap: (){}),
+         MenuItem('Favourite',icon: Icons.add_to_photos,
+             onTap: (){}),
+         MenuItem('Profile',icon: Icons.work,
+             onTap: (){
+           navigatorkey.currentState!
+               .push(MaterialPageRoute(builder:
+               (context)=>Profile()));
+             }),
+         MenuItem('Setting',icon: Icons.admin_panel_settings,
+             onTap: (){}),
+       ],
+       child: MyHomePage(),
+     ),
     );
   }
 }
@@ -33,6 +56,12 @@ class _MyHomePageState extends State<MyHomePage> {
     double width=MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(Icons.menu),
+          // call toggle from SlideDrawer to alternate between open and close
+          // when pressed menu button
+          onPressed: () => SlideDrawer.of(context)!.toggle(),
+        ),
         centerTitle: true,
         title: Text("My Basic"),
       ),
