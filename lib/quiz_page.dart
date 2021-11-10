@@ -21,7 +21,7 @@ List<bool> ansVisibility=[
   false,
   false,
   false,
-  false
+
 ];
 class QuizPage extends StatefulWidget {
   const QuizPage({Key? key}) : super(key: key);
