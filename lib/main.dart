@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:rajoan1/log_in.dart';
 import 'package:rajoan1/profile.dart';
 import 'package:slide_drawer/slide_drawer.dart';
 
@@ -71,8 +72,24 @@ class _MyHomePageState extends State<MyHomePage> {
           width: width,
           color: Colors.indigo,
           child: SingleChildScrollView(
+
             child: Column(
               children: [
+               ElevatedButton(
+                   onPressed: (){
+
+                   },
+                   child: Text("Quiz Page")
+               ),
+
+                ElevatedButton(
+                    onPressed: (){
+                      Navigator.push(context,
+                          MaterialPageRoute(builder:
+                              (context)=>LogIn()));
+                    },
+                    child: Text("log in")
+                ),
                 InkWell(
                   onTap: (){
                     setState(() {
